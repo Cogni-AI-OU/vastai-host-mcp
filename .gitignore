@@ -216,6 +216,11 @@ cython_debug/
 # Ignore .lock files
 .lock
 
+# Node.js / TypeScript
+dist/
+node_modules/
+*.tsbuildinfo
+
 # Temporary binary files
 actionlint
 

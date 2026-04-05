@@ -10,5 +10,13 @@
     },
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
-    "code-runner.fileDirectoryAsCwd": true
+    "code-runner.fileDirectoryAsCwd": true,
+    "chat.tools.terminal.autoApprove": {
+        "set": true,
+        "command": true,
+        "pnpm": true,
+        "npm install": true,
+        "pkill": true,
+        "true": true
+    }
 }

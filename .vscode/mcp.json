@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "vastai-host": {
+      "type": "stdio",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "tsx",
+        "src/index.ts"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "VAST_API_KEY": "YOUR_VAST_API_KEY",
+        "VAST_SERVER_URL": "https://console.vast.ai",
+        "MCP_TRANSPORT": "stdio"
+      }
+    }
+  }
+}
