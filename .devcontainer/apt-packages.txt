@@ -1,0 +1,7 @@
+coreutils
+findutils
+gh
+git
+mawk
+sed
+time
