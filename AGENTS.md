@@ -124,7 +124,6 @@ tries to auto-rebase (e.g., 113 commits), it encounters conflicts it cannot reso
 
 ## References
 
-- Claude-specific guidance: [CLAUDE.md](CLAUDE.md)
 - Main documentation: [README.md](README.md)
 
 ## Troubleshooting

@@ -17,6 +17,8 @@
         "pnpm": true,
         "npm install": true,
         "pkill": true,
-        "true": true
+        "pre-commit": true,
+        "true": true,
+        "yamllint": true
     }
 }

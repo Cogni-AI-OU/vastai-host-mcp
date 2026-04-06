@@ -10,8 +10,6 @@ For a human-readable overview, see [README.md](README.md).
 | Workflow | Purpose | Key triggers / notes |
 | -------- | ------- | -------------------- |
 | [check.yml](check.yml) | Linting and quality gates via actionlint and pre-commit | push, pull_request, schedule; reusable via `workflow_call` |
-| [claude-review.yml](claude-review.yml) | Automated PR review with Claude | pull_request (non-bot), `workflow_call` with `pr_number` |
-| [claude.yml](claude.yml) | Interactive Claude mentions on issues/PRs | issue_comment, pull_request_review_comment, workflow_dispatch, `workflow_call` |
 | [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow; schedule; `workflow_call` |
 
 ## Details
@@ -30,16 +28,6 @@ For a human-readable overview, see [README.md](README.md).
 - Trigger: pull_request (skips bot authors) and `workflow_call`.
 - Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/claude-review.yml@main`.
 
-### claude.yml
-
-- Purpose: respond to `@claude` mentions for interactive assistance.
-- Input: `model` (default `claude-opus-4-5`).
-- Triggers: issue_comment, pull_request_review_comment, workflow_dispatch, `workflow_call`.
-- Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/claude.yml@main`.
-- Access: restricted to OWNER, MEMBER, COLLABORATOR, CONTRIBUTOR associations.
-
-### devcontainer-ci.yml
-
 - Purpose: build and validate the dev container; ensure required tools and Python packages exist.
 - Inputs: `required_commands` (defaults to common CLI tools), `required_python_packages`
   (defaults to ansible, ansible-lint, docker, molecule, pre-commit, uv).
@@ -53,7 +41,7 @@ For a human-readable overview, see [README.md](README.md).
 - `claude-haiku-4-5`: fastest, best for quick tasks.
 - `claude-opus-4-5`: default balance.
 - `claude-sonnet-4-5`: most capable.
-- Provide `model` input when calling `claude.yml` or `claude-review.yml`; defaults to `claude-opus-4-5`.
+- Provide `model` input when calling `claude-review.yml`; defaults to `claude-opus-4-5`.
 
 ## Notes
 

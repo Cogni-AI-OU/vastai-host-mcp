@@ -80,24 +80,6 @@ annotations directly and don't need the problem matcher.
 Problem matchers are registered in the `.github/workflows/check.yml` workflow
 before running the corresponding tools.
 
-## Security
-
-### Claude Workflow Git Access
-
-The Claude Code workflow (`claude.yml`) grants intentionally broad git access
-via `Bash(git:*)` to enable autonomous code changes. This permission is necessary
-for Claude to commit and push changes, but requires proper safeguards.
-
-#### Security Controls
-
-**Access Control:**
-
-- Only trusted users can trigger Claude (OWNER, MEMBER, COLLABORATOR, CONTRIBUTOR)
-- PR/issue authors can only trigger on their own content
-- External contributors (FIRST_TIME_CONTRIBUTOR, NONE) are explicitly blocked
-
-**Required Repository Protections:**
-
 To safely use Claude with git access, repository administrators must configure:
 
 1. **Branch Protection Rules** on main/protected branches:
@@ -115,13 +97,3 @@ To safely use Claude with git access, repository administrators must configure:
    - Restrict who can push to protected branches
    - Consider requiring deployment approvals for production branches
    - Use CODEOWNERS to require specific reviewer approval for sensitive files
-
-#### Best Practices
-
-- Review Claude's commits before merging PRs
-- Use draft PRs for Claude's work to require explicit promotion
-- Regularly audit Claude's tool usage and permissions
-- Rotate `ANTHROPIC_API_KEY` periodically
-- Monitor workflow run logs for unexpected behavior
-
-For more details, see [CLAUDE.md](../CLAUDE.md).

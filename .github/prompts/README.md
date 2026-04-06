@@ -174,7 +174,6 @@ See: [Storing prompts in GitHub repositories](https://docs.github.com/en/github-
 ## Additional Resources
 
 - [AGENTS.md](../../AGENTS.md) - General agent guidance
-- [CLAUDE.md](../../CLAUDE.md) - Claude-specific configuration
 - [Copilot Instructions](../copilot-instructions.md) - Coding standards
 - [GitHub Actions Workflows](../workflows/) - Reusable workflows
 - [Instructions](../instructions/) - Language-specific guidelines
