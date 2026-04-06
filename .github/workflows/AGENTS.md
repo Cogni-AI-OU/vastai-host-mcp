@@ -11,6 +11,7 @@ For a human-readable overview, see [README.md](README.md).
 | -------- | ------- | -------------------- |
 | [check.yml](check.yml) | Linting and quality gates via actionlint and pre-commit | push, pull_request, schedule; reusable via `workflow_call` |
 | [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow |
+| [test.yml](test.yml) | Node.js build validation for the TypeScript MCP server | push to main, pull_request, and manual `workflow_dispatch` |
 
 ## Details
 
@@ -27,6 +28,12 @@ For a human-readable overview, see [README.md](README.md).
 - Triggers: pull_request/push affecting `.devcontainer/` or this workflow.
 - Permissions: grants `packages: write` for GHCR operations in the reusable workflow.
 - Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/devcontainer-ci.yml@main`.
+
+### test.yml
+
+- Purpose: validate install + TypeScript build for the MCP server in CI.
+- Steps: checkout, setup Node 20 + pnpm cache, install dependencies, run `pnpm build`.
+- Triggers: push to `main`, pull_request, and manual run via `workflow_dispatch`.
 
 ## Notes
 
