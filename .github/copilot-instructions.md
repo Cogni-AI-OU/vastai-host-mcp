@@ -134,13 +134,15 @@ Current high-level layout:
 To identify and diagnose the latest build errors:
 
 1. **Reproduce errors locally:**
-  - For TypeScript compile errors: Run `pnpm build`
-  - For MCP wiring issues: Run `pnpm inspect`
-  - For pre-commit errors: Run `pre-commit run -a` to check all files
-   - For specific hooks: Run `pre-commit run <hook-name> -a` (e.g., `markdownlint`, `yamllint`)
-   - For actionlint errors: Install actionlint and run it on workflow files
 
-2. **Common error patterns:**
-   - **Markdown linting errors:** Check `.markdownlint.yaml` for rules; errors show line numbers
-   - **YAML linting errors:** Check `.yamllint` for rules; verify indentation and structure
-   - **JSON formatting errors:** Use `jq . <file>` to validate JSON syntax
+- For TypeScript compile errors: Run `pnpm build`
+- For MCP wiring issues: Run `pnpm inspect`
+- For pre-commit errors: Run `pre-commit run -a` to check all files
+  - For specific hooks: Run `pre-commit run <hook-name> -a` (e.g., `markdownlint`, `yamllint`)
+- For actionlint errors: Install actionlint and run it on workflow files
+
+1. **Common error patterns:**
+
+- **Markdown linting errors:** Check `.markdownlint.yaml` for rules; errors show line numbers
+- **YAML linting errors:** Check `.yamllint` for rules; verify indentation and structure
+- **JSON formatting errors:** Use `jq . <file>` to validate JSON syntax

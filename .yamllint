@@ -3,6 +3,7 @@ extends: default
 ignore: |
   .cache
   .git
+  node_modules
 rules:
   comments:
     min-spaces-from-content: 1
