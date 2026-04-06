@@ -11,6 +11,6 @@ http://example.com
 https://example.com
 https://github.com/org/repo
 
-# URLs that are blocked for automated requests
-# please maintain at .github/agents/FIREWALL.md
-# otherwise don't add potential valid links here.
+# URLs that fail due to network blocks
+# If DNS/firewall is the issue, allowlist the host in .github/agents/FIREWALL.md
+# Only ignore here when link checks still fail after that.

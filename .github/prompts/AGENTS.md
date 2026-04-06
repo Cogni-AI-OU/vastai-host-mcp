@@ -9,10 +9,13 @@ For a human-readable overview, see [README.md](README.md).
 
 | Prompt | Format | Purpose |
 | ------ | ------ | ------- |
+| [default.prompt.yml](default.prompt.yml) | YAML | Default system prompt for general repository automation tasks |
 | [repository-setup.prompt.md](repository-setup.prompt.md) | Markdown | Full repository setup checklist using org standards from Cogni-AI-OU/.github |
+| [test.prompt.yml](test.prompt.yml) | YAML | Minimal test prompt fixture for workflow and prompt pipeline validation |
 
 ## Notes
 
+- Apply prompt files only when a user or task explicitly requests or approves their use.
 - Use Markdown prompts for human-readable checklists and structured guidance.
 - Use YAML prompts for GitHub Models or programmatic consumption.
 - Update this catalog whenever prompts are added, removed, or renamed.

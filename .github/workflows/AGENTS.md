@@ -10,7 +10,7 @@ For a human-readable overview, see [README.md](README.md).
 | Workflow | Purpose | Key triggers / notes |
 | -------- | ------- | -------------------- |
 | [check.yml](check.yml) | Linting and quality gates via actionlint and pre-commit | push, pull_request, schedule; reusable via `workflow_call` |
-| [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow; schedule; `workflow_call` |
+| [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow |
 
 ## Details
 
@@ -20,28 +20,13 @@ For a human-readable overview, see [README.md](README.md).
 - Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/check.yml@main`.
 - Jobs: `actionlint`, `pre-commit`.
 
-### claude-review.yml
-
-- Purpose: AI code review that comments on PRs.
-- Inputs: `pr_number` (required for `workflow_call`), `model` (default `claude-opus-4-5`),
-  `additional_prompt` (optional extra review instructions).
-- Trigger: pull_request (skips bot authors) and `workflow_call`.
-- Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/claude-review.yml@main`.
+### devcontainer-ci.yml
 
 - Purpose: build and validate the dev container; ensure required tools and Python packages exist.
-- Inputs: `required_commands` (defaults to common CLI tools), `required_python_packages`
-  (defaults to ansible, ansible-lint, docker, molecule, pre-commit, uv).
-- Triggers: pull_request/push affecting `.devcontainer/` or this workflow; weekly schedule;
-  `workflow_call`.
-- Permissions: callers must grant `packages: write` when pushing images to GHCR.
+- Inputs: `required_commands` and `required_python_packages` are passed through from this repository wrapper.
+- Triggers: pull_request/push affecting `.devcontainer/` or this workflow.
+- Permissions: grants `packages: write` for GHCR operations in the reusable workflow.
 - Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/devcontainer-ci.yml@main`.
-
-## Model selection (Claude workflows)
-
-- `claude-haiku-4-5`: fastest, best for quick tasks.
-- `claude-opus-4-5`: default balance.
-- `claude-sonnet-4-5`: most capable.
-- Provide `model` input when calling `claude-review.yml`; defaults to `claude-opus-4-5`.
 
 ## Notes
 
