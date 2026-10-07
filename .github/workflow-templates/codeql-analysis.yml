@@ -57,7 +57,7 @@ jobs:
         uses: github/codeql-action/autobuild@v4
 
       # Command-line programs to run using the OS shell.
-      # https://git.io/JvXDl
+      # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
 
       # If the Autobuild fails above, remove it and uncomment the following three lines
       #    and modify them (or add more) to build your code if your project
